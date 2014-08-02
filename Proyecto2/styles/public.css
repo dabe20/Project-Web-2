@@ -1,0 +1,26 @@
+img {
+	margin: 4% 0 0 40%;
+}
+
+#search {
+	margin: 3% 0 2% 36%;
+	width: 25%;
+}
+
+.type_search {
+	margin: 1% 0 0 44%;
+}
+
+#btn_search {
+	margin: 1% 0 0 44%;
+	width: 7%;
+	height: 5%;
+}
+
+.msj_sign_out {
+ 	padding: 6px;
+ 	margin-right: 14%;
+ 	margin-left: 77%;
+ 	border: 1px solid;
+ 	border-radius: 10px;
+ }

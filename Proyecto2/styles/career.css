@@ -1,0 +1,22 @@
+form {
+	padding: 2%;
+	margin-left: 33%;
+	margin-top: 14%;
+	border: 1px dashed;
+	width: 30%;
+	border-radius: 12px;
+}
+
+label {
+	font-size: 14px;
+	font-family: lucida handwriting;
+}
+
+#btn {
+	margin-top: 5%;
+	margin-left: 16%;
+}
+
+#name_career {
+	width: 80%;
+}

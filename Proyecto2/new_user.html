@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Nuevo Usuario</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles/user.css">
+	<script type="text/javascript" src="javascript/new_add.js"></script>
+</head>
+<body background="img/80.png">
+	<form>
+		<fieldset>
+			<legend>Agregar Usuario</legend>
+			<input type="text" id="new_name_username" placeholder="Nombre de usuario">
+			<br>
+			<input type="text" id="new_name_user" placeholder="Nombre Completo">
+			<br>
+			<input type="text" id="new_ced_user" placeholder="Cédula">
+			<br>
+			<label>Role: </label>
+			<input list="new_role" name="role">
+			<datalist id="new_role">
+			  <option value="Administrador">
+			  <option value="Director de Carrera">
+			</datalist>
+			<br>
+			<input type="pass" id="new_pass_user" placeholder="Contraseña">
+			<br>
+			<input type="pass" id="confirm_new_pass_user" placeholder="Confirmar Contraseña">
+			<input id="btn" type="button" name="save" value="Guardar" onclick="saveUser()">
+			<input type="button" name="cancel" value="Salir" onclick="location='http://localhost/proyecto/Admin_area.html'">
+		</fieldset>
+	</form>
+</body>
+</html>

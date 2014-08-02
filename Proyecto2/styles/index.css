@@ -1,0 +1,107 @@
+#principal {
+	margin-left: 490px;
+	margin-top: 180px;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 20%;
+}
+ #logo {
+ 	margin: 10px;
+ 	width: 100px;
+ 	height: 80px;
+ }
+
+ header { 
+ 	margin-left: 60px;
+ }
+
+ #encabezado {
+ 	margin-left: 12px;
+ }
+
+ .msj_sign_out {
+ 	padding: 6px;
+ 	margin-right: 14%;
+ 	margin-left: 76%;
+ 	border: 1px solid;
+ 	border-radius: 10px;
+ }
+
+.share {
+	margin-top: 22px;
+}
+
+
+#career {
+	font-family: arial;
+    border-spacing: 0;
+    border: 0px solid black;
+    width: 700px;   
+}
+
+#career td {
+    border: 1px solid black;
+}
+
+.cod {
+    text-align: center;
+    width: 11%;
+}
+
+#btn {
+    margin-left: 10px;
+    text-align: center;
+    padding: 0; 
+    height: 19px;
+    width: 19px;
+    position: relative;
+    opacity: 1;
+}
+
+#edit, #delete {
+    margin-left: 10px;
+    text-align: center;
+    padding: 0; 
+    height: 19px;
+    width: 19px;
+    position: relative;
+    opacity: 1;
+}
+
+.list li {
+    padding: 9px;
+}
+
+#btn_new_students {
+    margin-left: 98%;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+    position: relative;
+    opacity: 1;
+}
+
+.name_career {
+    font-family: courier;    
+}
+
+#btn_new_career {
+    margin-bottom: 10px;
+    margin-left: 78%;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+    position: relative;
+    opacity: 1;
+}
+
+#btn_new_user {
+    margin-bottom: 10px;
+    margin-left: 150%;
+    text-align: center;
+    height: 30px;
+    width: 80px;
+    position: relative;
+    opacity: 1;
+}

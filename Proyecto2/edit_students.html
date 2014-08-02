@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Edición Estudiantes</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles/students.css">
+</head>
+<body background="img/80.png">
+	<form>
+		<fieldset>
+			<legend>Editar Estudiante</legend>
+			<input type="text" id="edit_name_students" placeholder="Nombre">
+			<br>
+			<input type="file" id="1" name="edit_photo">
+			<br>
+			<input type="text" id="edit_ced_students" placeholder="Cédula">
+			<br>
+			<label>Carrera:</label>
+			<input list="edit_career" name="career">
+			<datalist id="edit_career">
+				<option value="Ingeniería en Computación">
+				<option value="Contabilidad">
+				<option value="Comercio Internacional">
+			</datalist>
+			<br>
+			<label>Nivel de Ingles:</label>
+			<input list="edit_lvl_english" name="lvl_english">
+			<datalist id="edit_lvl_english">
+				<option value="Básico">
+				<option value="Intermedio">
+				<option value="Avanzado">
+			</datalist>
+			<br>
+			<input id="btn" type="button" name="save_changes" value="Guardar Cambios" onclick="location='http://localhost/proyecto/Admin_area.html'">
+			<input type="button" name="save_new" value="Guardar/Nuevo" onclick="location='http://localhost/proyecto/new_students.html'">
+			<input type="button" name="cancel" value="Cancelar" onclick="location='http://localhost/proyecto/Admin_area.html'">
+		</fieldset>
+	</form>
+</body>
+</html>
