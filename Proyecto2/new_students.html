@@ -5,36 +5,37 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles/students.css">
-	<script type="text/javascript" src="javascript/new_add.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body background="img/80.png">
 	<form>
 		<fieldset>
 			<legend>Agregar Estudiante</legend>
-			<input type="text" id="new_name_students" placeholder="Nombre">
+			<input type="text" id="new_name_students" placeholder="Nombre" auto>
 			<br>
 			<input type="file" id="photo" name="new_photo">
 			<br>
 			<input type="text" id="new_ced_students" placeholder="Cédula">
 			<br>
 			<label>Carrera:</label>
-			<input list="new_career" name="career">
-			<datalist id="new_career">
+			<input list="careers" name="career" id="new_career">
+			<datalist id="careers">
 				<option value="Ingeniería en Computación">
 				<option value="Contabilidad">
 				<option value="Comercio Internacional">
 			</datalist>
 			<br>
 			<label>Nivel de Ingles:</label>
-			<input list="new_lvl_english" name="lvl_english">
-			<datalist id="new_lvl_english">
+			<input list="lvl_english" name="lvl_english" id="new_lvl_english">
+			<datalist id="lvl_english">
 				<option value="Básico">
 				<option value="Intermedio">
 				<option value="Avanzado">
 			</datalist>
 			<br>
 			<input id="btn_save_students" type="button" name="save" value="Guardar">
-			<input type="button" name="cancel" value="Cancelar" onclick="location='http://localhost/proyecto/Admin_area.html'">
+			<input type="button" id="cancel" value="Cancelar">
 		</fieldset>
 	</form>
 	<script type="text/javascript">

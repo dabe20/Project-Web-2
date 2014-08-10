@@ -69,7 +69,11 @@
     opacity: 1;
 }
 
-.list li {
+.list_user li {
+    padding: 9px;
+}
+
+.list_stud li {
     padding: 9px;
 }
 
