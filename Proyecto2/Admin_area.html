@@ -2,11 +2,12 @@
 <html>
 <head>
 	<title>Perfiles UTN - Area Administrativa</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/index.css">
-    <link rel="stylesheet" type="text/css" href="styles/tab.css">
-    <script type="text/javascript" src="javascript/create_delete.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!--script type="text/javascript" src="javascript/create_delete.js"></script-->
 </head>
 <body background="img/80.png">
 	<header>
@@ -18,150 +19,147 @@
 		<br>
 		<label id="encabezado"><strong>UTN Perfiles</strong></label>
 	</header>
-	<section class="tabs">
-    <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
-    <label for="tab-1" class="tab-label-1">Dashboard</label>
-     
-    <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
-    <label for="tab-2" class="tab-label-2">Carreras</label>
-     
-    <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
-    <label for="tab-3" class="tab-label-3">Estudiantes</label>
-     
-    <input id="tab-4" type="radio" name="radio-set" class="tab-selector-4" />
-    <label for="tab-4" class="tab-label-4">Usuarios</label>
-
-    <div class="clear-shadow"></div>
-                 
-    <div class="content">
-        <div class="content-1">
-            <h4>Ultimas Búsquedas Realizadas</h4>
-            <hr>
-            <ul class="share">	
-           	 	<li>2014/06/01 - AngularJS</li>
-            	<li>2014/06/01 - Database, P</li>
-            	<li>2014/06/02 - PHP, Code I</li>
-            	<li>2014/05/25 - Ruby on Rail</li>
+    
+        <div class="container" style="margin-top: 60px; color: white;">
+            <ul class="nav nav-tabs">
+                <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
+                <li><a href="#carreras" data-toggle="tab">Carreras</a></li>
+                <li><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
+                <li><a href="#usuarios" data-toggle="tab">Usuarios</a></li>
             </ul>
+                    
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="dashboard">
+                    <h4>Ultimas Búsquedas Realizadas</h4>
+                    <hr>
+                    <ul class="share">	
+                   	 	<li>2014/06/01 - AngularJS</li>
+                    	<li>2014/06/01 - Database, P</li>
+                    	<li>2014/06/02 - PHP, Code I</li>
+                    	<li>2014/05/25 - Ruby on Rail</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="carreras">
+                    <h4>Listado de Carreras</h4>
+                    <hr width="28%" align="left">
+                    <input id="btn_new_career" type="button" name="new_career" value="Nuevo" 
+                    onclick="location='http://localhost/proyecto2/new_career.html'">
+                    <table id="career">
+                    	<tr>
+                    		<td class="cod">
+                    			<h3>Código</h3>
+                    		</td>
+                    		<td>
+                    			<h3>Nombre</h3>
+                    		</td>
+                    	</tr>
+                    	<tr>
+                    		<td class="cod">
+                    			<h5>ISW</h5>
+                    		</td>
+                    		<td>
+                    			<label id="name_career">Ingeniería en Computación</label>
+                                <input id="delete" type="image" name="delete" src="img/eliminar.gif" 
+                                onclick="">
+                                <input id="edit" type="image" name="edit" src="img/ico-editar.gif" 
+                                onclick="">
+                    		</td>
+                    	</tr>
+                    	<tr>
+                    		<td class="cod">
+                    			<h5>COFI</h5>
+                    		</td>
+                    		<td>
+                    			<label for="name_career">Contabilidad</label>
+                                <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                                onclick="">
+                                <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                                onclick="">
+                    		</td>
+                    	</tr>
+                    	<tr>
+                    		<td class="cod">
+                    			<h5>ADM</h5>
+                    		</td>
+                    		<td>
+                    			<label for="name_career">Comercio Internacional</label>
+                                <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                                onclick="">
+                                <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                                onclick="">
+                    		</td>
+                    	</tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="estudiantes">
+                    <h4>Lista de Estudiantes</h4>
+                    <hr width="64%" align="left">
+                    <input id="btn_new_students" type="button" class="btn btn-info" name="new_students" value="Nuevo" 
+                    onclick="location='http://localhost/proyecto2/new_students.html'">
+                    <ul id="list_stud">
+                        <li>
+                            <a href="http://localhost/proyecto2/info_students_Diego.html">Diego</a> Armando Bonilla Espinoza
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                        <li>
+                            <a href="http://localhost/proyecto2/info_students_Luis.html">Luis</a> Andrés Barahona Carvajal
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                        <li>
+                            <a href="http://localhost/proyecto2/info_students_Megan.html">Megan</a> Castro Rojas
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                        <li>
+                            <a href="http://localhost/proyecto2/info_students_Lipney.html">Lipney</a> Natalia Garcia Muñoz
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="usuarios">
+                    <h4>Lista de Usuarios</h4>
+                    <hr width="95%" align="left">
+                    <input id="btn_new_user" type="button" name="new_user" value="Nuevo" 
+                    onclick="location='http://localhost/proyecto2/new_user.html'">
+                    <ul class="list_user">
+                        <li>
+                            <a href="http://localhost/proyecto2/info_user_Dab.html">DABE</a>
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                        <li>
+                            <a href="http://localhost/proyecto2/info_user_Bri.html">Brillittica</a>
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                        <li>
+                            <a href="http://localhost/proyecto2/info_user_Dan.html">Dvargas</a>
+                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
+                            onclick="">
+                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
+                            onclick="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="content-2">
-            <h4>Listado de Carreras</h4>
-            <hr width="28%" align="left">
-            <input id="btn_new_career" type="button" name="new_career" value="Nuevo" 
-            onclick="location='http://localhost/proyecto2/new_career.html'">
-            <table id="career">
-            	<tr>
-            		<td class="cod">
-            			<h3>Código</h3>
-            		</td>
-            		<td>
-            			<h3>Nombre</h3>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td class="cod">
-            			<h5>ISW</h5>
-            		</td>
-            		<td>
-            			<label id="name_career">Ingeniería en Computación</label>
-                        <input id="delete" type="image" name="delete" src="img/eliminar.gif" 
-                        onclick="">
-                        <input id="edit" type="image" name="edit" src="img/ico-editar.gif" 
-                        onclick="">
-            		</td>
-            	</tr>
-            	<tr>
-            		<td class="cod">
-            			<h5>COFI</h5>
-            		</td>
-            		<td>
-            			<label for="name_career">Contabilidad</label>
-                        <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                        onclick="">
-                        <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                        onclick="">
-            		</td>
-            	</tr>
-            	<tr>
-            		<td class="cod">
-            			<h5>ADM</h5>
-            		</td>
-            		<td>
-            			<label for="name_career">Comercio Internacional</label>
-                        <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                        onclick="">
-                        <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                        onclick="">
-            		</td>
-            	</tr>
-            </table>
-        </div>
-        <div class="content-3">
-            <h4>Lista de Estudiantes</h4>
-            <hr width="64%" align="left">
-            <input id="btn_new_students" type="button" name="new_students" value="Nuevo" 
-            onclick="location='http://localhost/proyecto2/new_students.html'">
-            <ul id="list_stud">
-                <li>
-                    <a href="http://localhost/proyecto2/info_students_Diego.html">Diego</a> Armando Bonilla Espinoza
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-                <li>
-                    <a href="http://localhost/proyecto2/info_students_Luis.html">Luis</a> Andrés Barahona Carvajal
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-                <li>
-                    <a href="http://localhost/proyecto2/info_students_Megan.html">Megan</a> Castro Rojas
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-                <li>
-                    <a href="http://localhost/proyecto2/info_students_Lipney.html">Lipney</a> Natalia Garcia Muñoz
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-            </ul>
-        </div>
-        <div class="content-4">
-            <h4>Lista de Usuarios</h4>
-            <hr width="95%" align="left">
-            <input id="btn_new_user" type="button" name="new_user" value="Nuevo" 
-            onclick="location='http://localhost/proyecto2/new_user.html'">
-            <ul class="list_user">
-                <li>
-                    <a href="http://localhost/proyecto2/info_user_Dab.html">DABE</a>
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-                <li>
-                    <a href="http://localhost/proyecto2/info_user_Bri.html">Brillittica</a>
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-                <li>
-                    <a href="http://localhost/proyecto2/info_user_Dan.html">Dvargas</a>
-                    <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                    onclick="">
-                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                    onclick="">
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
 </body>
 </html>

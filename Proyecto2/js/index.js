@@ -1,6 +1,6 @@
 function prepareBinding() {    
     //$( "#test_button" ).bind( "click", function() { my_alert('text 2');});
-    $( "#btn_save_students" ).click(function() { saveStudent() ;});
+    $( "#btn_save_students" ).click(function() { saveStudent() ; createStudent() ;});
     $( "#btn_save_careers" ).click(function() { saveCareers() ;});
     $( "#btn_save_users" ).click(function() { saveUsers() ;});
     //$( "#cancel" ).click( = "http://localhost/proyecto2/Admin_area.html");
