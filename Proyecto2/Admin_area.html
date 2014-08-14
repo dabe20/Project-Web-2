@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/index.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <!--script type="text/javascript" src="javascript/create_delete.js"></script-->
 </head>
 <body background="img/80.png">
@@ -15,14 +17,14 @@
 			<label>Hola Admin</label>
 			<a href="http://localhost/proyecto2/">Salir</a>
 		</div>
-		<img id="logo" src="img/UTN.jpg">
+		<img id="logoUTN" src="img/UTN.jpg">
 		<br>
 		<label id="encabezado"><strong>UTN Perfiles</strong></label>
 	</header>
-    
+    <section>
         <div class="container" style="margin-top: 60px; color: white;">
             <ul class="nav nav-tabs">
-                <li><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
+                <li class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
                 <li><a href="#carreras" data-toggle="tab">Carreras</a></li>
                 <li><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
                 <li><a href="#usuarios" data-toggle="tab">Usuarios</a></li>
@@ -42,8 +44,7 @@
                 <div class="tab-pane fade" id="carreras">
                     <h4>Listado de Carreras</h4>
                     <hr width="28%" align="left">
-                    <input id="btn_new_career" type="button" name="new_career" value="Nuevo" 
-                    onclick="location='http://localhost/proyecto2/new_career.html'">
+                    <button id="btn_new_career" class="btn btn-info" data-toggle="modal" data-target="#add_career">Nuevo</button>
                     <table id="career">
                     	<tr>
                     		<td class="cod">
@@ -58,7 +59,7 @@
                     			<h5>ISW</h5>
                     		</td>
                     		<td>
-                    			<label id="name_career">Ingeniería en Computación</label>
+                    			<a href="">Ingeniería en Computación</a>
                                 <input id="delete" type="image" name="delete" src="img/eliminar.gif" 
                                 onclick="">
                                 <input id="edit" type="image" name="edit" src="img/ico-editar.gif" 
@@ -70,7 +71,7 @@
                     			<h5>COFI</h5>
                     		</td>
                     		<td>
-                    			<label for="name_career">Contabilidad</label>
+                    			<a href="">Contabilidad</a>
                                 <input id="btn" type="image" name="delete" src="img/eliminar.gif"
                                 onclick="">
                                 <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
@@ -82,7 +83,7 @@
                     			<h5>ADM</h5>
                     		</td>
                     		<td>
-                    			<label for="name_career">Comercio Internacional</label>
+                    			<a href="">Comercio Internacional</a>
                                 <input id="btn" type="image" name="delete" src="img/eliminar.gif"
                                 onclick="">
                                 <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
@@ -94,32 +95,31 @@
                 <div class="tab-pane fade" id="estudiantes">
                     <h4>Lista de Estudiantes</h4>
                     <hr width="64%" align="left">
-                    <input id="btn_new_students" type="button" class="btn btn-info" name="new_students" value="Nuevo" 
-                    onclick="location='http://localhost/proyecto2/new_students.html'">
+                    <button id="btn_new_students" class="btn btn-info" data-toggle="modal" data-target="#add_student">Nuevo</button>
                     <ul id="list_stud">
                         <li>
-                            <a href="http://localhost/proyecto2/info_students_Diego.html">Diego</a> Armando Bonilla Espinoza
+                            <a href="http://localhost/proyecto2/info_students_Diego.html">Diego Armando Bonilla Espinoza</a>
                             <input id="btn" type="image" name="delete" src="img/eliminar.gif"
                             onclick="">
                             <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
                             onclick="">
                         </li>
                         <li>
-                            <a href="http://localhost/proyecto2/info_students_Luis.html">Luis</a> Andrés Barahona Carvajal
+                            <a href="http://localhost/proyecto2/info_students_Luis.html">Luis Andrés Barahona Carvajal</a>
                             <input id="btn" type="image" name="delete" src="img/eliminar.gif"
                             onclick="">
                             <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
                             onclick="">
                         </li>
                         <li>
-                            <a href="http://localhost/proyecto2/info_students_Megan.html">Megan</a> Castro Rojas
+                            <a href="http://localhost/proyecto2/info_students_Megan.html">Megan Castro Rojas</a>
                             <input id="btn" type="image" name="delete" src="img/eliminar.gif"
                             onclick="">
                             <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
                             onclick="">
                         </li>
                         <li>
-                            <a href="http://localhost/proyecto2/info_students_Lipney.html">Lipney</a> Natalia Garcia Muñoz
+                            <a href="http://localhost/proyecto2/info_students_Lipney.html">Lipney Natalia Garcia Muñoz</a>
                             <input id="btn" type="image" name="delete" src="img/eliminar.gif"
                             onclick="">
                             <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
@@ -130,8 +130,7 @@
                 <div class="tab-pane fade" id="usuarios">
                     <h4>Lista de Usuarios</h4>
                     <hr width="95%" align="left">
-                    <input id="btn_new_user" type="button" name="new_user" value="Nuevo" 
-                    onclick="location='http://localhost/proyecto2/new_user.html'">
+                    <button id="btn_new_user" class="btn btn-info" data-toggle="modal" data-target="#add_user">Nuevo</button>
                     <ul class="list_user">
                         <li>
                             <a href="http://localhost/proyecto2/info_user_Dab.html">DABE</a>
@@ -158,7 +157,108 @@
                 </div>
             </div>
         </div>
-    
+    </section>
+    <section>
+    <div class="modal fade" id="add_career" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Agregar Carrera</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new_cod_career" placeholder="Código">
+                    <br><br>
+                    <input id="new_name_career" type="text" placeholder="Nombre">       
+                </div>
+                <div class="footer">
+                    <button id="btn_save_careers" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    <script type="text/javascript">
+                        prepareBinding();
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="add_student" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Agregar Estudiante</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new_name_students" placeholder="Nombre">
+                    <br><br>
+                    <input type="file" id="photo" name="new_photo">
+                    <br><br>
+                    <input type="text" id="new_ced_students" placeholder="Cédula">
+                    <br><br>
+                    <label>Carrera:</label>
+                    <input list="careers" name="career" id="new_career">
+                    <datalist id="careers">
+                        <option value="Ingeniería en Computación">
+                        <option value="Contabilidad">
+                        <option value="Comercio Internacional">
+                    </datalist>
+                    <br><br>
+                    <label>Nivel de Ingles:</label>
+                    <input list="lvl_english" name="lvl_english" id="new_lvl_english">
+                    <datalist id="lvl_english">
+                        <option value="Básico">
+                        <option value="Intermedio">
+                        <option value="Avanzado">
+                    </datalist>
+                </div>
+                <div class="footer">
+                    <button id="btn_save_students" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button> 
+                    <script type="text/javascript">
+                        prepareBinding();
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Agregar Usuario</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new_name_username" placeholder="Nombre de usuario">
+                    <br><br>
+                    <input type="text" id="new_name_user" placeholder="Nombre Completo">
+                    <br><br>
+                    <input type="text" id="new_ced_user" placeholder="Cédula">
+                    <br><br>
+                    <label>Role: </label>
+                    <input list="roles" name="role" id="new_role">
+                    <datalist id="roles">
+                      <option value="Administrador">
+                      <option value="Director de Carrera">
+                    </datalist>
+                    <br><br>
+                    <input type="password" id="new_pass_user" placeholder="Contraseña"> 
+                    <input type="password" id="confirm_new_pass_user" placeholder="Confirmar Contraseña">     
+                </div>
+                <div class="footer">
+                    <button id="btn_save_users" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    <script type="text/javascript">
+                        prepareBinding();
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </section>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
 </body>

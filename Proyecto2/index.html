@@ -2,21 +2,45 @@
 <html>
 <head>
 	<title>Perfiles UTN</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="javascript/login.js"></script>
 </head>
 <body background="img/descarga.jpg">
-	<form id="principal" align="center" name="formLogin" defaultbutton="cmdBuscar">
-		<img id="logo" src="img/images.jpg">
-		<br>
-		<label><strong>UTN Perfiles</strong></label>
-		<br>
-		<input type="text" name="username" placeholder="Username">
-		<br>
-		<input type="password" name="pass" placeholder="Password">
-		<br>
-		<input type="button" name="sign_in" value="Ingresar" onclick="login()">
-	</form>
+	<div class="container" style="margin-top: 40px;">
+		<img src="img/LogoUTN.png">
+		<input id="logo" type="image" src="img/images.jpg" class="btn btn-info" data-toggle="modal" data-target="#login">
+
+		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                 
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                    <h4>UTN Perfil</h4>
+	                </div>
+	                <div class="modal-body">
+	                    <form id="principal" align="center" name="formLogin" defaultbutton="cmdBuscar">
+							<input type="text" name="username" placeholder="Username">
+							<br><br>
+							<input type="password" name="pass" placeholder="Password">
+						</form>   
+	                </div>
+	                <div class="footer">
+	                    <button id="sign_in" type="button" class="btn btn-primary" data-dismiss="modal">Ingresar</button>
+	                    <script type="text/javascript">
+	                        prepareBinding();
+	                    </script>
+	                </div>
+
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
 </body>

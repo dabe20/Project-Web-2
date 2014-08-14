@@ -1,12 +1,10 @@
 function prepareBinding() {    
-    //$( "#test_button" ).bind( "click", function() { my_alert('text 2');});
-    $( "#btn_save_students" ).click(function() { saveStudent() ; createStudent() ;});
+    $( "#btn_save_students" ).click(function() { saveStudents() ;});
     $( "#btn_save_careers" ).click(function() { saveCareers() ;});
     $( "#btn_save_users" ).click(function() { saveUsers() ;});
-    //$( "#cancel" ).click( = "http://localhost/proyecto2/Admin_area.html");
 }
 
-function saveStudent() {
+function saveStudents() {
     // obtener datos del form
     var name = document.getElementById('new_name_students').value,
         photo = document.getElementById('photo').value;
@@ -91,7 +89,7 @@ function createStudent(){
             label.appendChild(labeltext);
             document.getElementById(ul).appendChild(nameStud);
         }
-
+/*
 function editStudents() {
     // obtener datos del form
     var name = document.getElementById('new_name_students').value,
@@ -115,7 +113,7 @@ function editStudents() {
     // volver guardar en localstoraage
     localStorage.setItem('students',JSON.stringify(students));
 }
-
+*/
 function my_alert(text) {
     alert(text);
 }
