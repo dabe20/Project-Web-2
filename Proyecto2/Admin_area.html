@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="acolapser">
                     <ul class="nav navbar-nav">
                         <li><a href="#">Hola Admin</a></li>
-                        <li><a href="http://localhost/proyecto2/"><span class="glyphicon glyphicon-cog"></span>Salir</a></li>
+                        <li><a href="http://localhost/proyecto2/"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                 <div class="tab-pane fade in active" id="dashboard">
                     <h4>Ultimas Búsquedas Realizadas</h4>
                     <hr>
-                    <ul class="share">	
+                    <ul>	
                    	 	<li><a href="#" class="myTooltips" title="Recientemente" data-placement="top">2014/06/01 - AngularJS</a></li>
                     	<li><a href="#" class="myTooltips" title="Hace una hora" data-placement="right">2014/06/01 - Database, P</a></li>
                     	<li><a href="#" class="myTooltips" title="Hace 2 dias" data-placement="bottom">2014/06/02 - PHP, Code I</a></li>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="tab-pane fade" id="carreras">
                     <h4>Listado de Carreras</h4>
-                    <hr width="28%" align="left">
+                    <hr width="100%" align="left">
                     <button id="btn_new_career" class="btn btn-info" data-toggle="modal" data-target="#add_career">Nuevo</button>
                     <table class="table table-bordered table-hover">
                         <thead>
@@ -72,10 +72,8 @@
                         		<td>ISW</td>
                         		<td>
                         			<a class="btn" data-toggle="modal" data-target="#info_ISW">Ingeniería en Computación</a>
-                                    <input id="delete" type="image" name="delete" src="img/eliminar.gif" 
-                                    onclick="">
-                                    <input id="edit" type="image" name="edit" src="img/ico-editar.gif" 
-                                    onclick="">
+                                    <input id="btn" type="image" name="delete" src="img/eliminar.gif" >
+                                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" >
                         		</td>
                         	</tr>
                         </tbody>
@@ -83,30 +81,44 @@
                 </div>
                 <div class="tab-pane fade" id="estudiantes">
                     <h4>Lista de Estudiantes</h4>
-                    <hr width="64%" align="left">
+                    <hr width="100%" align="left">
                     <button id="btn_new_students" class="btn btn-info" data-toggle="modal" data-target="#add_student">Nuevo</button>
-                    <ul id="list_stud">
-                        <li>
-                            <a class="btn" data-toggle="modal" data-target="#info_Diego">Diego Armando Bonilla Espinoza</a>
-                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                            onclick="">
-                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                            onclick="">
-                        </li>
-                    </ul>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="active warning">
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a class="btn" data-toggle="modal" data-target="#info_Diego">Diego Armando Bonilla Espinoza</a>
+                                    <input id="btn" type="image" name="delete" src="img/eliminar.gif" >
+                                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="tab-pane fade" id="usuarios">
+                <div  class="tab-pane fade" id="usuarios">
                     <h4>Lista de Usuarios</h4>
-                    <hr width="95%" align="left">
+                    <hr width="100%" align="left">
                     <button id="btn_new_user" class="btn btn-info" data-toggle="modal" data-target="#add_user">Nuevo</button>
-                    <ul class="list_user">
-                        <li>
-                            <a class="btn" sdata-toggle="modal" data-target="#info_Dabe">DABE</a>
-                            <input id="btn" type="image" name="delete" src="img/eliminar.gif"
-                            onclick="">
-                            <input id="btn" type="image" name="edit" src="img/ico-editar.gif" 
-                            onclick="">
-                        </li>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="active danger">
+                                <th>Nombre de Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a class="btn" data-toggle="modal" data-target="#info_Dabe">DABE</a>
+                                    <input id="btn" type="image" name="delete" src="img/eliminar.gif" >
+                                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" >
+                                </td>
+                            </tr>
+                        </tbody>
                     </ul>
                 </div>
             </div>
@@ -278,10 +290,9 @@
                  
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Información de Estudiante</h4>
+                    <h4>Información de Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <legend>Información de  usuario</legend>
                     <label class="desc">Nombre de usuario: </label>
                     <label name="name_username">DABE</label>
                     <br>
