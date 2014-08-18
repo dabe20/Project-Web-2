@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <!--script type="text/javascript" src="javascript/create_delete.js"></script-->
+    <script src="js/jquery.js"></script>
+    <!--script type="text/javascript" src="js/create_delete.js"></script-->
 </head>
 <body background="img/80.png">
 	<header>
@@ -52,8 +53,8 @@
                     <ul>	
                    	 	<li><a href="#" class="myTooltips" title="Recientemente" data-placement="top">2014/06/01 - AngularJS</a></li>
                     	<li><a href="#" class="myTooltips" title="Hace una hora" data-placement="right">2014/06/01 - Database, P</a></li>
-                    	<li><a href="#" class="myTooltips" title="Hace 2 dias" data-placement="bottom">2014/06/02 - PHP, Code I</a></li>
-                    	<li><a href="#" class="myTooltips" title="Hace un mes" data-placement="left">2014/05/25 - Ruby on Rail</a></li>
+                    	<li><a href="#" class="myTooltips" title="Hace 1 día" data-placement="left">2014/06/02 - PHP, Code I</a></li>
+                    	<li><a href="#" class="myTooltips" title="Hace un mes" data-placement="bottom">2014/05/25 - Ruby on Rail</a></li>
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="carreras">
@@ -67,13 +68,13 @@
                         		<th>Nombre</th>
                         	</tr>
                         </thead>
-                        <tbody>
+                        <tbody id="careers">
                         	<tr>
                         		<td>ISW</td>
                         		<td>
                         			<a class="btn" data-toggle="modal" data-target="#info_ISW">Ingeniería en Computación</a>
-                                    <input id="btn" type="image" name="delete" src="img/eliminar.gif" >
-                                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" >
+                                    <span id="delCareer" class="btn glyphicon glyphicon-remove"></span>
+                                    <span id="editCareer" class="btn glyphicon glyphicon-pencil"></span>
                         		</td>
                         	</tr>
                         </tbody>
@@ -89,12 +90,12 @@
                                 <th>Nombre</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="students">
                             <tr>
                                 <td>
                                     <a class="btn" data-toggle="modal" data-target="#info_Diego">Diego Armando Bonilla Espinoza</a>
-                                    <input id="btn" type="image" name="delete" src="img/eliminar.gif" >
-                                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" >
+                                    <span id="delStud" class="btn glyphicon glyphicon-remove"></span>
+                                    <span id="editStud" class="btn glyphicon glyphicon-pencil"></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -114,210 +115,197 @@
                             <tr>
                                 <td>
                                     <a class="btn" data-toggle="modal" data-target="#info_Dabe">DABE</a>
-                                    <input id="btn" type="image" name="delete" src="img/eliminar.gif" >
-                                    <input id="btn" type="image" name="edit" src="img/ico-editar.gif" >
+                                    <span id="delUser" class="btn glyphicon glyphicon-remove"></span>
+                                    <span id="editUser" class="btn glyphicon glyphicon-pencil"></span>
                                 </td>
                             </tr>
                         </tbody>
-                    </ul>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
-    <section>
-    <div class="modal fade" id="add_career" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Agregar Carrera</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" id="new_cod_career" placeholder="Código">
-                    <br><br>
-                    <input id="new_name_career" type="text" class="form-control" placeholder="Nombre">       
-                </div>
-                <div class="footer">
-                    <button id="btn_save_careers" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
-                    <script type="text/javascript">
-                        prepareBinding();
-                    </script>
-                </div>
+    <section id="add">
+        <div class="modal fade" id="add_career" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                     
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Agregar Carrera</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="new_cod_career" placeholder="Código" style="width: 16%;">
+                        <br><br>
+                        <input id="new_name_career" type="text" class="form-control" placeholder="Nombre" style="width: 90%;">       
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_save_careers" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="add_student" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Agregar Estudiante</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" id="new_name_students" placeholder="Nombre">
-                    <br><br>
-                    <input type="file" class="form-control" id="photo" name="new_photo">
-                    <br><br>
-                    <input type="text" class="form-control" id="new_ced_students" placeholder="Cédula">
-                    <br><br>
-                    <label>Carrera:</label>
-                    <input list="careers" name="career" id="new_career" class="form-control">
-                    <datalist id="careers">
-                        <option value="Ingeniería en Computación">
-                        <option value="Contabilidad">
-                        <option value="Comercio Internacional">
-                    </datalist>
-                    <br><br>
-                    <label>Nivel de Ingles:</label>
-                    <input list="lvl_english" name="lvl_english" id="new_lvl_english" class="form-control">
-                    <datalist id="lvl_english">
-                        <option value="Básico">
-                        <option value="Intermedio">
-                        <option value="Avanzado">
-                    </datalist>
-                </div>
-                <div class="footer">
-                    <button id="btn_save_students" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button> 
-                    <script type="text/javascript">
-                        prepareBinding();
-                    </script>
-                </div>
+        <div class="modal fade" id="add_student" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                     
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Agregar Estudiante</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="new_name_students" placeholder="Nombre"style="width: 62%;">
+                        <br><br>
+                        <input type="file" class="form-control" id="photo" name="new_photo" style="width: 62%;">
+                        <br><br>
+                        <input type="text" class="form-control" id="new_ced_students" placeholder="Cédula" style="width: 34%;">
+                        <br><br>
+                        <label>Carrera:</label>
+                        <input list="list_careers" name="career" id="new_career" class="form-control" style="width: 45%;">
+                            <datalist id="list_careers">
+                                <option value="Ingeniería en Computación">
+                            </datalist>
+                        <br><br>
+                        <label>Nivel de Ingles:</label>
+                        <input list="lvl_english" name="lvl_english" id="new_lvl_english" class="form-control" style="width: 20%;">
+                            <datalist id="lvl_english">
+                                <option value="Básico">
+                                <option value="Intermedio">
+                                <option value="Avanzado">
+                            </datalist>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_save_students" class="btn btn-primary" data-dismiss="modal">Guardar</button> 
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Agregar Usuario</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" id="new_name_username" placeholder="Nombre de usuario">
-                    <br><br>
-                    <input type="text" class="form-control" id="new_name_user" placeholder="Nombre Completo">
-                    <br><br>
-                    <input type="text" class="form-control" id="new_ced_user" placeholder="Cédula">
-                    <br><br>
-                    <label>Role: </label>
-                    <input list="roles" name="role" id="new_role" class="form-control">
-                    <datalist id="roles">
-                      <option value="Administrador">
-                      <option value="Director de Carrera">
-                    </datalist>
-                    <br><br>
-                    <div class="col-xs-3">
-                        <input type="password" class="form-control" id="new_pass_user" placeholder="Contraseña"> 
-                        <input type="password" class="form-control" id="confirm_new_pass_user" placeholder="Confirmar Contraseña"> 
-                    </div>    
-                </div>
-                <div class="footer">
-                    <button id="btn_save_users" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
-                    <script type="text/javascript">
-                        prepareBinding();
-                    </script>
-                </div>
+        <div class="modal fade" id="add_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                     
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Agregar Usuario</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="new_name_username" placeholder="Nombre de usuario" style="width: 40%;">
+                        <br><br>
+                        <input type="text" class="form-control" id="new_name_user" placeholder="Nombre Completo" style="width: 58%;">
+                        <br><br>
+                        <input type="text" class="form-control" id="new_ced_user" placeholder="Cédula" style="width: 34%;">
+                        <br><br>
+                        <label>Role: </label>
+                        <input list="roles" name="role" id="new_role" class="form-control" style="width: 23%;">
+                            <datalist id="roles">
+                              <option value="Administrador">
+                              <option value="Director de Carrera">
+                            </datalist>
+                        <br>
+                        <div class="col-xs-6">
+                            <input type="password" class="form-control" id="new_pass_user" placeholder="Contraseña" style="width: 100%;"> 
+                        </div>    
+                        <div class="col-xs-6">
+                            <input type="password" class="form-control" id="confirm_new_pass_user" placeholder="Confirmar Contraseña" style="width: 100%;"> 
+                        </div>
+                        <br><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_save_users" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+                    </div>
 
+                </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade" id="info_ISW" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Información de Carrera</h4>
-                </div>
-                <div class="modal-body">
-                    <label>Codigo: </label>
-                    <label>ISW</label>
-                    <br><br>
-                    <label>Nombre: </label>
-                    <label>Ingeniería en Computación</label> 
-                </div>
-                <div class="footer">
-                    <button id="btn_edit_careers" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
-                    <script type="text/javascript">
-                        prepareBinding();
-                    </script>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="info_Diego" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Información de Estudiante</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="img/487745_586502824694448_474172104_n.jpg" width="24%">
-                    <br>
-                    <label class="desc">Nombre: </label>
-                    <label name="name_students">Diego Armando Bonilla Espinoza</label>
-                    <br>
-                    <label class="desc">Cédula: </label>
-                    <label name="ced_students">207180035</label>
-                    <br>
-                    <label class="desc">Carrera: </label>
-                    <label name="lvl_english">Ingenieria en Computación</label>
-                    <br>
-                    <label class="desc">Nivel de Inglés: </label>
-                    <label name="lvl_english">Intermedio</label>
-                </div>
-                <div class="footer">
-                    <button id="btn_edit_students" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
-                    <script type="text/javascript">
-                        prepareBinding();
-                    </script>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="info_Dabe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4>Información de Usuario</h4>
-                </div>
-                <div class="modal-body">
-                    <label class="desc">Nombre de usuario: </label>
-                    <label name="name_username">DABE</label>
-                    <br>
-                    <label class="desc">Nombre Completo: </label>
-                    <label name="name_user">Diego Armando Bonilla Espinoza</label>
-                    <br>
-                    <label class="desc">Cédula: </label>
-                    <label name="ced_user">207180035</label>
-                    <br>
-                    <label class="desc">Role: </label>
-                    <label name="role">Administrador</label>
-                </div>
-                <div class="footer">
-                    <button id="btn_edit_users" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
-                    <script type="text/javascript">
-                        prepareBinding();
-                    </script>
-                </div>
-
-            </div>
-        </div>
-    </div>
     </section>
+    <section id="info">
+        <div class="modal fade" id="info_ISW" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                     
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Información de Carrera</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label>Codigo: </label>
+                        <label>ISW</label>
+                        <br><br>
+                        <label>Nombre: </label>
+                        <label>Ingeniería en Computación</label> 
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_edit_careers" class="btn btn-primary" data-dismiss="modal">Editar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="info_Diego" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                     
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Información de Estudiante</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/487745_586502824694448_474172104_n.jpg" width="24%">
+                        <br>
+                        <label class="desc">Nombre: </label>
+                        <label name="name_students">Diego Armando Bonilla Espinoza</label>
+                        <br>
+                        <label class="desc">Cédula: </label>
+                        <label name="ced_students">207180035</label>
+                        <br>
+                        <label class="desc">Carrera: </label>
+                        <label name="lvl_english">Ingenieria en Computación</label>
+                        <br>
+                        <label class="desc">Nivel de Inglés: </label>
+                        <label name="lvl_english">Intermedio</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_edit_students" class="btn btn-primary" data-dismiss="modal">Editar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="info_Dabe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                     
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Información de Usuario</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label class="desc">Nombre de usuario: </label>
+                        <label name="name_username">DABE</label>
+                        <br>
+                        <label class="desc">Nombre Completo: </label>
+                        <label name="name_user">Diego Armando Bonilla Espinoza</label>
+                        <br>
+                        <label class="desc">Cédula: </label>
+                        <label name="ced_user">207180035</label>
+                        <br>
+                        <label class="desc">Role: </label>
+                        <label name="role">Administrador</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn_edit_users" class="btn btn-primary" data-dismiss="modal">Editar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        prepareBinding();
+    </script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
     <script>$('.myTooltips').tooltip();</script>
 </body>
 </html>

@@ -9,29 +9,15 @@
     height: 150px;
  }
 
- .msj_sign_out {
- 	padding: 6px;
- 	margin-right: 14%;
- 	margin-left: 76%;
- 	border: 1px solid;
- 	border-radius: 10px;
- }
-
-#btn {
+#delCareer, #editCareer,
+#delStud, #editStud,
+#delUser, #editUser {
     margin-left: 10px;
     text-align: center;
     padding: 0; 
     height: 19px;
     width: 19px;
     position: relative;
-}
-
-.list_user li {
-    padding: 9px;
-}
-
-.list_stud li {
-    padding: 9px;
 }
 
 #btn_new_students {
@@ -41,10 +27,6 @@
     height: 30px;
     width: 80px;
     position: relative;
-}
-
-.name_career {
-    font-family: courier;    
 }
 
 #btn_new_career {
