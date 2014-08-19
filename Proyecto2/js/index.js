@@ -1,7 +1,7 @@
 function prepareBinding() {    
-    $( "#btn_save_students" ).click(function() { saveStudents() ;});
-    $( "#btn_save_careers" ).click(function() { createCareers() ;});
-    $( "#btn_save_users" ).click(function() { saveUsers() ;});
+    $( "#btn_save_students" ).click(function() { saveStudents() ; createStudents() ;});
+    $( "#btn_save_careers" ).click(function() { saveCareers() ; createCareers() ;});
+    $( "#btn_save_users" ).click(function() { saveUsers() ; createUsers() ;});
 }
 
 function saveStudents() {
@@ -59,8 +59,7 @@ function saveUsers() {
         } 
         else 
         {
-            alert("Cofirmacion de contraseña incorrecta, asegurese de que la contraseña de confirmación sea igual a la contraseña..")
-            location.reload();
+            alert("Confirmacion de contraseña incorrecta, asegurese de que la contraseña de confirmación sea igual a la contraseña..")
         }
 }
 
@@ -202,30 +201,255 @@ function createStudents(){
             career = document.getElementById("new_career").value;
             lvlEng = document.getElementById("new_lvl_english").value;
             tbody = "students";
-            var tag1 = document.createElement("tr");
-            var tag2 = document.createElement("td");
-            var tag3 = document.createElement("td");
-            var tag4 = document.createElement("a");
-            var tag5 = document.createElement("span");
-            var tag6 = document.createElement("span");
-            tag4.setAttribute('class', "btn");
-            tag4.setAttribute('data-toggle', "modal");
-            tag4.setAttribute('data-target', "#");
-            tag5.setAttribute('id',"delCareer");
-            tag5.setAttribute('class',"btn glyphicon glyphicon-remove");
-            tag6.setAttribute('id',"editCareer");
-            tag6.setAttribute('class',"btn glyphicon glyphicon-pencil");
-            text = document.createTextNode(codigo);
-            tag2.appendChild(text);   
-            tag1.appendChild(tag2);
-            text2 = document.createTextNode(name);
-            tag4.appendChild(text2);
-            tag3.appendChild(tag4); 
-            tag3.appendChild(tag5);
-            tag3.appendChild(tag6);
-            tag1.appendChild(tag3);
-            document.getElementById(tbody).appendChild(tag1);
+            info = "info";
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var a = document.createElement("a");
+            var span = document.createElement("span");
+            var span2 = document.createElement("span");
+            var div = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            var div4 = document.createElement("div");
+            var btn = document.createElement("button");
+            var h4 = document.createElement("h4");
+            var div5 = document.createElement("div");
+            var img = document.createElement("img");
+            var br = document.createElement("br");
+            var label = document.createElement("label");
+            var lab2 = document.createElement("label");
+            var br2 = document.createElement("br");
+            var lab3 = document.createElement("label");
+            var lab4 = document.createElement("label");
+            var br3 = document.createElement("br");
+            var lab5 = document.createElement("label");
+            var lab6 = document.createElement("label");
+            var br4 = document.createElement("br");
+            var lab7 = document.createElement("label");
+            var lab8 = document.createElement("label");
+            var div6 = document.createElement("div");
+            var btn2 = document.createElement("button");
+
+            a.setAttribute('class', "btn");
+            a.setAttribute('data-toggle', "modal");
+            a.setAttribute('data-target', "#info_"+cedula);
+            span.setAttribute('id',"delCareer");
+            span.setAttribute('class',"btn glyphicon glyphicon-remove");
+            span2.setAttribute('id',"editCareer");
+            span2.setAttribute('class',"btn glyphicon glyphicon-pencil");
+            div.setAttribute('class',"modal");
+            div.setAttribute('id',"info_"+cedula);
+            div.setAttribute('tabindex',"-1");
+            div.setAttribute('role',"dialog");
+            div.setAttribute('aria-labelledby',"myModalLabel");
+            div.setAttribute('aria-hidden',"true");
+            div2.setAttribute('class',"modal-dialog");
+            div3.setAttribute('class',"modal-content");
+            div4.setAttribute('class',"modal-header");
+            btn.setAttribute('class',"close");
+            btn.setAttribute('data-dismiss',"modal");
+            btn.setAttribute('aria-hidden',"true");       
+            div5.setAttribute('class',"modal-body");
+            img.setAttribute('src',photo);
+            img.setAttribute('width',"24%");
+            div6.setAttribute('class',"modal-footer");
+            btn2.setAttribute('id',"btn_edit_careers");
+            btn2.setAttribute('class',"btn btn-primary");
+            btn2.setAttribute('data-dismiss',"modal");
+
+            text = document.createTextNode(name);
+            a.appendChild(text);   
+            td.appendChild(a); 
+            td.appendChild(span);
+            td.appendChild(span2);
+            tr.appendChild(td);
+            document.getElementById(tbody).appendChild(tr);
+
+            txt7 = document.createTextNode("Editar");
+            btn2.appendChild(txt7);
+            div6.appendChild(btn2);
+
+            div5.appendChild(img);
+
+            div5.appendChild(br);
+
+            txt7 = document.createTextNode("Nombre:_"); 
+            lab7.appendChild(txt7);
+            div5.appendChild(lab7);
+
+            txt8 = document.createTextNode(name);
+            lab8.appendChild(txt8);
+            div5.appendChild(lab8); 
+
+            div5.appendChild(br2);
+
+            txt5 = document.createTextNode("Cedula:_");
+            lab5.appendChild(txt5);
+            div5.appendChild(lab5);
+
+            txt6 = document.createTextNode(cedula);
+            lab6.appendChild(txt6);
+            div5.appendChild(lab6);
+
+            div5.appendChild(br3);
+
+            txt3 = document.createTextNode("Carrera:_");
+            lab3.appendChild(txt3);
+            div5.appendChild(lab3);
+
+            txt4 = document.createTextNode(career);
+            lab4.appendChild(txt4);
+            div5.appendChild(lab4);
+
+            div5.appendChild(br4);
+
+            txt = document.createTextNode("Nivel de Inglés:_");
+            label.appendChild(txt);
+            div5.appendChild(label);
+
+            txt2 = document.createTextNode(lvlEng);
+            lab2.appendChild(txt2);
+            div5.appendChild(lab2);
+
+            txt2 = document.createTextNode("x");
+            btn.appendChild(txt2);
+            div4.appendChild(btn);
+
+            txt = document.createTextNode("Información de Estudiante");
+            h4.appendChild(txt);
+            div4.appendChild(h4);
+
+            div3.appendChild(div4);
+            div3.appendChild(div5);
+            div3.appendChild(div6);
+            div2.appendChild(div3);
+            div.appendChild(div2);
+            document.getElementById(info).appendChild(div);
         }
+
+function createUsers(){
+            username = document.getElementById("new_name_username").value;
+            name = document.getElementById("new_name_user").value;
+            cedula = document.getElementById("new_ced_user").value;
+            role = document.getElementById("new_role").value;
+            tbody = "users";
+            info = "info";
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var a = document.createElement("a");
+            var span = document.createElement("span");
+            var span2 = document.createElement("span");
+            var div = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            var div4 = document.createElement("div");
+            var btn = document.createElement("button");
+            var h4 = document.createElement("h4");
+            var div5 = document.createElement("div");
+            var label = document.createElement("label");
+            var lab2 = document.createElement("label");
+            var br = document.createElement("br");
+            var lab3 = document.createElement("label");
+            var lab4 = document.createElement("label");
+            var br2 = document.createElement("br");
+            var lab5 = document.createElement("label");
+            var lab6 = document.createElement("label");
+            var br3 = document.createElement("br");
+            var lab7 = document.createElement("label");
+            var lab8 = document.createElement("label");
+            var div6 = document.createElement("div");
+            var btn2 = document.createElement("button");
+
+            a.setAttribute('class', "btn");
+            a.setAttribute('data-toggle', "modal");
+            a.setAttribute('data-target', "#info_"+username);
+            span.setAttribute('id',"delCareer");
+            span.setAttribute('class',"btn glyphicon glyphicon-remove");
+            span2.setAttribute('id',"editCareer");
+            span2.setAttribute('class',"btn glyphicon glyphicon-pencil");
+            div.setAttribute('class',"modal");
+            div.setAttribute('id',"info_"+username);
+            div.setAttribute('tabindex',"-1");
+            div.setAttribute('role',"dialog");
+            div.setAttribute('aria-labelledby',"myModalLabel");
+            div.setAttribute('aria-hidden',"true");
+            div2.setAttribute('class',"modal-dialog");
+            div3.setAttribute('class',"modal-content");
+            div4.setAttribute('class',"modal-header");
+            btn.setAttribute('class',"close");
+            btn.setAttribute('data-dismiss',"modal");
+            btn.setAttribute('aria-hidden',"true");       
+            div5.setAttribute('class',"modal-body");
+            div6.setAttribute('class',"modal-footer");
+            btn2.setAttribute('id',"btn_edit_careers");
+            btn2.setAttribute('class',"btn btn-primary");
+            btn2.setAttribute('data-dismiss',"modal");
+
+            text = document.createTextNode(username);
+            a.appendChild(text);   
+            td.appendChild(a); 
+            td.appendChild(span);
+            td.appendChild(span2);
+            tr.appendChild(td);
+            document.getElementById(tbody).appendChild(tr);
+
+            txt7 = document.createTextNode("Editar");
+            btn2.appendChild(txt7);
+            div6.appendChild(btn2);
+
+            txt7 = document.createTextNode("Nombre de usuario:_"); 
+            lab7.appendChild(txt7);
+            div5.appendChild(lab7);
+
+            txt8 = document.createTextNode(username);
+            lab8.appendChild(txt8);
+            div5.appendChild(lab8); 
+
+            div5.appendChild(br);
+
+            txt5 = document.createTextNode("Nombre:_");
+            lab5.appendChild(txt5);
+            div5.appendChild(lab5);
+
+            txt6 = document.createTextNode(name);
+            lab6.appendChild(txt6);
+            div5.appendChild(lab6);
+
+            div5.appendChild(br2);
+
+            txt3 = document.createTextNode("Cedula:_");
+            lab3.appendChild(txt3);
+            div5.appendChild(lab3);
+
+            txt4 = document.createTextNode(cedula);
+            lab4.appendChild(txt4);
+            div5.appendChild(lab4);
+
+            div5.appendChild(br3);
+
+            txt = document.createTextNode("Role:_");
+            label.appendChild(txt);
+            div5.appendChild(label);
+
+            txt2 = document.createTextNode(role);
+            lab2.appendChild(txt2);
+            div5.appendChild(lab2);
+
+            txt2 = document.createTextNode("x");
+            btn.appendChild(txt2);
+            div4.appendChild(btn);
+
+            txt = document.createTextNode("Información de Usuario");
+            h4.appendChild(txt);
+            div4.appendChild(h4);
+
+            div3.appendChild(div4);
+            div3.appendChild(div5);
+            div3.appendChild(div6);
+            div2.appendChild(div3);
+            div.appendChild(div2);
+            document.getElementById(info).appendChild(div);
+        } 
 /*
 function editStudents() {
     // obtener datos del form
